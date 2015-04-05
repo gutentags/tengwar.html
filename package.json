@@ -1,0 +1,45 @@
+{
+  "name": "tengwar.html",
+  "version": "0.0.0",
+  "author": "Kris Kowal <kris@cixar.com>",
+  "bugs": {
+    "url": "http://github.com/kriskowal/tengwarjs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/kriskowal/tengwarjs.git"
+  },
+  "description": "http://lostandtaken.com/blog/2011/6/2/6-high-quality-seamless-paper-textures.html",
+  "homepage": "https://github.com/kriskowal/tengwarjs",
+  "dependencies": {
+    "gutentag": "^1.0.2",
+    "koerper": "^1.0.3",
+    "mr": "^2.0.7",
+    "tengwar": "^0.1.2"
+  },
+  "devDependencies": {
+    "mr": "^2.0.6"
+  },
+  "translators": {
+    "html": "gutentag/translate-html"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tengwar",
+    "editor",
+    "elvish",
+    "gutentag"
+  ],
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/kriskowal/tengwarjs/raw/master/LICENSE"
+    },
+    {
+      "url": "http://github.com/kriskowal/tengwarjs/raw/master/tengwar-annatar/tngandoc.pdf"
+    }
+  ]
+}
