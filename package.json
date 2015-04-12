@@ -17,7 +17,7 @@
     "mr": "^2.0.7",
     "pop-observe": "^2.0.2",
     "querystring": "^0.2.0",
-    "tengwar": "^1.1.5"
+    "tengwar": "^1.1.6"
   },
   "devDependencies": {
     "less": "^2.5.0",
