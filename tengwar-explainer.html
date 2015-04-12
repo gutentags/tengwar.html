@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="extends" href="./tengwar-explainer">
-        <link rel="tag" href="gutentag/text.html" as="content">
+        <link rel="tag" href="gutentag/html.html" as="content">
         <link rel="tag" href="gutentag/repeat.html">
         <link rel="tag" href="gutentag/reveal.html">
     </head>
@@ -14,6 +14,11 @@
                         <repeat id="words">
                             <repeat id="columns">
                                 <span class="TengwarExplainer-column">
+                                    <span class="TengwarExplainer-slot TengwarExplainer-character">
+                                        <span id="tengwarContainer">
+                                            <content id="tengwar"></content>
+                                        </span>
+                                    </span>
                                     <span class="TengwarExplainer-slot">
                                         <content id="above"></content>
                                         <content id="tildeAbove"></content>
@@ -22,11 +27,11 @@
                                         <content id="tengwa"></content>
                                     </span>
                                     <span class="TengwarExplainer-slot">
-                                        <content id="below"></content>
                                         <content id="tildeBelow"></content>
+                                        <content id="below"></content>
+                                        <content id="following"></content>
                                     </span>
                                 </span>
-                                <sp> </sp>
                             </repeat>
                             <reveal id="wordBreak">
                                 <div class="TengwarExplainer-wordBreak"></div>

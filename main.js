@@ -1,36 +1,49 @@
 "use strict";
 
+var O = require("pop-observe");
+
 module.exports = Main;
 
 function Main() {
+    this.language = "english";
+    this.mode = "general-use";
+    this.latin = "";
+    this.font = "parmaite";
 }
 
 Main.prototype.add = function (component, id, scope) {
     if (id === "this") {
-        this.tengwar = scope.components.tengwar;
-        this.explanation = scope.components.explanation;
-        this.latin = scope.components.latin.actualNode;
+        this.components = scope.components;
         this.init();
     }
 };
 
 Main.prototype.init = function () {
-    this.latin.addEventListener("keyup", this);
-    this.latin.focus();
+    this.components.latin.actualNode.addEventListener("keyup", this);
+    this.components.latin.actualNode.focus();
+    this.chooserObserver = O.observePropertyChange(this.components.chooser, "value", this);
     delete document.body.className;
 };
 
+Main.prototype.handleValuePropertyChange = function (value) {
+    var parts = value.split(":");
+    this.mode = parts[0];
+    this.language = parts[1];
+    this.font = parts[2];
+    this.update();
+};
+
 Main.prototype.handleEvent = function (event) {
-    this.tengwar.value = {
-        mode: 'general-use',
-        font: 'parmaite',
-        language: 'english',
-        value: this.latin.value
-    };
-    this.explanation.value = {
-        mode: 'general-use',
-        font: 'parmaite',
-        language: 'english',
-        value: this.latin.value
+    this.latin = this.components.latin.actualNode.value;
+    this.update();
+};
+
+Main.prototype.update = function () {
+    this.components.explanation.value = {
+        mode: this.mode,
+        font: this.font,
+        language: this.language,
+        value: this.latin
     };
 };
+

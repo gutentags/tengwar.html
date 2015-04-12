@@ -2,6 +2,7 @@
   "name": "tengwar.html",
   "version": "0.0.0",
   "author": "Kris Kowal <kris@cixar.com>",
+  "description": "Tags for Tengwar (Elvish script)",
   "bugs": {
     "url": "http://github.com/kriskowal/tengwarjs/issues"
   },
@@ -9,22 +10,25 @@
     "type": "git",
     "url": "http://github.com/kriskowal/tengwarjs.git"
   },
-  "description": "http://lostandtaken.com/blog/2011/6/2/6-high-quality-seamless-paper-textures.html",
   "homepage": "https://github.com/kriskowal/tengwarjs",
   "dependencies": {
     "gutentag": "^1.0.2",
     "koerper": "^1.0.3",
     "mr": "^2.0.7",
-    "tengwar": "^0.1.2"
+    "pop-observe": "^2.0.2",
+    "querystring": "^0.2.0",
+    "tengwar": "^1.1.1"
   },
   "devDependencies": {
+    "less": "^2.5.0",
     "mr": "^2.0.6"
   },
   "translators": {
     "html": "gutentag/translate-html"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lessc index.less bundle.css && mrs index.js > bundle.js"
   },
   "keywords": [
     "tengwar",

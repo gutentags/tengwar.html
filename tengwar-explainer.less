@@ -1,0 +1,32 @@
+
+@import "flex.less";
+
+.TengwarExplainer-line {
+    .flex-display();
+    .flex-direction(row);
+    .flex-wrap(wrap);
+}
+
+.TengwarExplainer-column {
+    .flex(0 1 auto);
+    .flex-display(flex);
+    .flex-direction(column);
+}
+
+.TengwarExplainer-slot {
+    .flex(1 1 auto);
+    padding: 4px;
+    height: 1em;
+    text-align: center;
+}
+
+.TengwarExplainer-character {
+    height: 4em;
+}
+
+.TengwarExplainer-wordBreak {
+    border-left: 1px black solid;
+    margin-left: 1ex;
+    margin-right: 1ex;
+}
+

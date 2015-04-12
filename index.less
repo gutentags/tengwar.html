@@ -1,4 +1,8 @@
 
+@import "flex.less";
+@import "use.less";
+@import "tengwar-explainer.less";
+
 body {
     margin: 0;
     padding: 0;
@@ -116,38 +120,38 @@ a:focus {
     left: 0;
     right: 0;
     overflow: auto;
-    display: -webkit-flex;
-    -webkit-flex-flow: column;
-    -webkit-align-items: stretch;
+    .flex-display();
+    .flex-direction(column);
+    .align-items(stretch);
 }
 
 .output-box {
-    -webkit-flex: 3;
-    display: -webkit-flex;
-    -webkit-flex-flow: column;
-    -webkit-align-items: center;
-    -webkit-justify-content: center;
+    .flex(3);
+    .flex-display();
+    .flex-flow(column);
+    .align-items(center);
+    .justify-content(center);
     padding: 30px;
 }
 
 .divider {
-    -webkit-flex: 0 0 20px;
+    .flex(0 0 20px);
     cursor: row-resize;
 }
 
 .transliteration-box {
-    display: -webkit-flex;
-    -webkit-flex-flow: row;
-    -webkit-justify-content: center;
-    -webkit-align-items: center;
+    .flex-display();
+    .flex-flow(row);
+    .justify-content(center);
+    .align-items(center);
     overflow: auto;
 }
 
 .transliteration-box > div {
-    display: -webkit-flex;
-    -webkit-flex-flow: column;
-    -webkit-justify-content: center;
-    -webkit-align-items: center;
+    .flex-display();
+    .flex-flow(column);
+    .justify-content(center);
+    .align-items(center);
     padding: 0 4px;
 }
 
@@ -156,68 +160,57 @@ a:focus {
 }
 
 .input-box {
-    display: -webkit-flex;
-    -webkit-flex-flow: row;
-    -webkit-justify-content: center;
-    -webkit-align-items: stretch;
+    .flex-display();
+    .flex-flow(row);
+    .justify-content(center);
+    .align-items(stretch);
 }
 
 .form-box {
     white-space: nowrap;
     padding: 10px;
-    -webkit-flex: 1 .5;
-    -webkit-align-self: flex-end;
+    .flex(1 1.5);
+    .align-self(flex-end);
     text-align: center;
 }
 
 .content-box {
-    -webkit-flex: 0 1 80ex;
-    display: -webkit-flex;
-    -webkit-flex-flow: column;
-    -webkit-align-items: stretch;
-    -webkit-justify-content: stretch;
-    padding: 10px;
+    .flex(0 1 80ex);
+    .flex-display();
+    .flex-flow(column);
+    .align-items(stretch);
+    .justify-content(stretch);
+    padding: 4px;
 }
 
 .about-box {
     padding: 10px;
     white-space: nowrap;
     text-align: center;
-    -webkit-flex: 1 .5;
-    -webkit-align-self: flex-end;
+    .flex(1 .5);
+    .align-self(flex-end);
 }
 
 .input {
-    -webkit-flex: 1;
+    .flex(1);
     width: 100%;
 }
 
 /* animation */
 
 body.bootstrap .input-box {
-    -webkit-transition-property: height;
-    -webkit-transition-duration: 500ms;
+    .transition-property(height);
+    .transition-duration(500ms);
 }
 
-.TengwarExplainer-line {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.chooser-box {
+    .flex-display();
+    .flex-direction(row);
+    .justify-content(center);
 }
 
-.TengwarExplainer-column {
-    flex: 0 1 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.TengwarExplainer-slot {
-    padding: 4px;
-    flex: 1 1 auto;
-    height: 1em;
-    text-align: center;
-}
-
-.TengwarExplainer-wordBreak {
-    border-left: 1px black solid;
+.TengwarChooser {
+    .flex(0 1 auto);
+    font-size: 25px;
+    margin: 4px;
 }

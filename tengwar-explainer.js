@@ -8,25 +8,37 @@ var fonts = require("tengwar/fonts");
 function TengwarEditor() {
 }
 
+function from(value) {
+    if (value) {
+        if (value.from) {
+            return value.from.toUpperCase();
+        }
+    }
+}
+
 TengwarEditor.prototype.add = function (component, id, scope) {
+    var components = scope.components;
     if (id === "this") {
-        this.sections = scope.components.sections;
+        this.sections = components.sections;
     } else if (id === "sections:iteration") {
-        scope.components.paragraphs.value = component.value;
+        components.paragraphs.value = component.value;
     } else if (id === "paragraphs:iteration") {
-        scope.components.lines.value = component.value;
+        components.lines.value = component.value;
     } else if (id === "lines:iteration") {
-        scope.components.words.value = component.value;
-        scope.components.lineBreak.value = component.index !== scope.components.lines.value.length - 1;
+        components.words.value = component.value;
+        components.lineBreak.value = component.index !== components.lines.value.length - 1;
     } else if (id === "words:iteration") {
-        scope.components.columns.value = component.value;
-        scope.components.wordBreak.value = component.index !== scope.components.words.value.length - 1;
+        components.columns.value = component.value;
+        components.wordBreak.value = component.index !== components.words.value.length - 1;
     } else if (id === "columns:iteration") {
-        scope.components.tildeAbove.value = component.value.tildeAbove ? " " + component.value.tengwa : "";
-        scope.components.above.value = component.value.above;
-        scope.components.tengwa.value = component.value.tengwa;
-        scope.components.below.value = component.value.below;
-        scope.components.tildeBelow.value = component.value.tildeBelow ? " ~" : "";
+        components.tengwar.value = this.font.transcribeColumn(component.value);
+        components.tengwarContainer.actualNode.className = "tengwar rendered " + this.fontName;
+        components.tildeAbove.value = from(component.value.tildeAboveNote);
+        components.above.value = from(component.value.aboveNote);
+        components.tengwa.value = from(component.value.tengwaNote);
+        components.below.value = from(component.value.belowNote);
+        components.tildeBelow.value = from(component.value.tildeBelowNote);
+        components.following.value = from(component.value.followingNote);
     }
 };
 
@@ -39,6 +51,9 @@ Object.defineProperty(TengwarEditor.prototype, "value", {
             language: value.language,
             block: true
         };
+        this.font = font;
+        this.fontName = value.font;
+        this.mode = mode;
         this.sections.value = mode.parse(value.value, options);
     }
 });

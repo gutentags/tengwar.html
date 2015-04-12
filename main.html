@@ -4,29 +4,37 @@
         <link rel="extends" href="./main">
         <link rel="tag" href="./tengwar-view.html">
         <link rel="tag" href="./tengwar-explainer.html">
+        <link rel="tag" href="./tengwar-chooser.html">
     </head>
     <body>
         <div class="body-box">
+            <!--
             <div class="output-box">
                 <tengwar-view id="tengwar"></tengwar-view>
             </div>
+            -->
             <div class="output-box">
                 <tengwar-explainer id="explanation"></tengwar-explainer>
             </div>
-            <div class="transliteration-box">
-            </div>
             <div class="divider"></div>
             <div class="input-box">
+                <!--
                 <div class="form-box">
                     <a class="select-mode" href="#">Select Mode</a>
                 </div>
+                -->
                 <div class="content-box" style="">
                     <textarea id="latin" spellcheck="false"></textarea>
                 </div>
+                <!--
                 <div class="about-box">
                     <a class="wiki-text" href="#">View Wiki Markup</a> &mdash;
                     <a href="about.html">About</a>
                 </div>
+                -->
+            </div>
+            <div class="chooser-box">
+                <tengwar-chooser id="chooser"></tengwar>
             </div>
         </div>
     </body>
