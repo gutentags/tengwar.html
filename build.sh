@@ -43,6 +43,8 @@ export GIT_COMMITTER_DATE="$NOW"
 function gentree1() {
     # NODE_MODULES=$(mktree $HERE/node_modules)
     # echo "040000 tree $NODE_MODULES"$'\t'"node_modules"
+    # HTML_BUNDLE=$(git hash-object -w bundle.html)
+    # echo "100644 blob $HTML_BUNDLE"$'\t'"index.html"
     JS_BUNDLE=$(git hash-object -w <(mrs index.js))
     echo "100644 blob $JS_BUNDLE"$'\t'"bundle.js"
     CSS_BUNDLE=$(git hash-object -w <(lessc index.less))
@@ -59,12 +61,14 @@ PARENT=$(git rev-parse refs/heads/master)
 COMMIT=$(git commit-tree -p "$PARENT" "$TREE" < <(echo "Create bundles"))
 
 function gentree2() {
+    git ls-tree $PARENT | grep -v index.html
     HTML_BUNDLE=$(git hash-object -w bundle.html)
     echo "100644 blob $HTML_BUNDLE"$'\t'"index.html"
 }
 PARENT=$COMMIT
 OVERLAY=$(gentree2 | git mktree)
-git read-tree -m -i "$OVERLAY" "$TREE"
+git read-tree --empty
+git read-tree --prefix=/ "$OVERLAY"
 TREE=$(git write-tree --missing-ok)
 COMMIT=$(git commit-tree -p "$PARENT" "$TREE" < <(echo "Update index"))
 
