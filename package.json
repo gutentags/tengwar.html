@@ -27,7 +27,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "lessc index.less bundle.css && mrs index.js > bundle.js"
+    "build": "lessc index.less bundle.css",
+    "deploy": "./build-gh-pages.sh && git push origin gh-pages -f"
   },
   "keywords": [
     "tengwar",
