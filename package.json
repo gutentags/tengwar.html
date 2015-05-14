@@ -12,7 +12,7 @@
   },
   "homepage": "https://github.com/kriskowal/tengwarjs",
   "dependencies": {
-    "gutentag": "^1.0.3",
+    "gutentag": "^1.0.4",
     "koerper": "^1.0.3",
     "pop-observe": "^2.0.2",
     "querystring": "^0.2.0",
