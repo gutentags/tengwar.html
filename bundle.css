@@ -68,7 +68,7 @@ body.annatar .body-box {
   background: linear-gradient(top, #fefcea 0%, #f9e63b 7%, #e0a928 53%, #d69a2c 94%, #c97e16 99%);
   /* W3C */
   color: #ff0;
-  text-shadow: 0px 0px 10px #730 ;
+  text-shadow: 0px 0px 10px #730;
 }
 body.parmaite .body-box {
   background-image: url(paper.jpg);
@@ -78,7 +78,7 @@ body.parmaite .body-box {
   text-shadow: 0px 0px 4px #ffc;
 }
 body.annatar .error {
-  text-shadow: 0px 0px 10px #f00 ;
+  text-shadow: 0px 0px 10px #f00;
 }
 body.parmaite .error {
   color: #700;
