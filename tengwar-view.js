@@ -8,10 +8,10 @@ var fonts = require("tengwar/fonts");
 function TengwarEditor() {
 }
 
-TengwarEditor.prototype.add = function (component, id, scope) {
+TengwarEditor.prototype.hookup = function (id, component, scope) {
     if (id === "this") {
         this.element = scope.components.text;
-        this.container = scope.components.container.actualNode;
+        this.container = scope.components.container;
     }
 };
 

@@ -12,18 +12,18 @@
   },
   "homepage": "https://github.com/kriskowal/tengwarjs",
   "dependencies": {
-    "gutentag": "^1.0.4",
+    "gutentag": "^2.2.0",
     "koerper": "^1.0.3",
     "pop-observe": "^2.0.2",
     "querystring": "^0.2.0",
+    "system": "^2.0.1",
     "tengwar": "^1.2.3"
   },
   "devDependencies": {
-    "less": "^2.5.0",
-    "mr": "^2.0.7"
+    "less": "^3.8.0"
   },
-  "translators": {
-    "html": "gutentag/translate-html"
+  "extensions": {
+    "html": "gutentag/extension"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

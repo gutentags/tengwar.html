@@ -16,7 +16,7 @@ function from(value) {
     }
 }
 
-TengwarEditor.prototype.add = function (component, id, scope) {
+TengwarEditor.prototype.hookup = function (id, component, scope) {
     var components = scope.components;
     if (id === "this") {
         this.sections = components.sections;
@@ -32,7 +32,7 @@ TengwarEditor.prototype.add = function (component, id, scope) {
         components.wordBreak.value = component.index !== components.words.value.length - 1;
     } else if (id === "columns:iteration") {
         components.tengwar.value = this.font.transcribeColumn(component.value);
-        components.tengwarContainer.actualNode.className = "tengwar rendered " + this.fontName;
+        components.tengwarContainer.className = "tengwar rendered " + this.fontName;
         components.tildeAbove.value = from(component.value.tildeAboveNote);
         components.above.value = from(component.value.aboveNote);
         components.tengwa.value = from(component.value.tengwaNote);
