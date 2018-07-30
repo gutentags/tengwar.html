@@ -11,7 +11,7 @@ function Main() {
     this.font = "parmaite";
 }
 
-Main.prototype.add = function (component, id, scope) {
+Main.prototype.hookup = function (id, component, scope) {
     if (id === "this") {
         this.components = scope.components;
         this.init();
@@ -19,8 +19,8 @@ Main.prototype.add = function (component, id, scope) {
 };
 
 Main.prototype.init = function () {
-    this.components.latin.actualNode.addEventListener("keyup", this);
-    this.components.latin.actualNode.focus();
+    this.components.latin.addEventListener("keyup", this);
+    this.components.latin.focus();
     this.chooserObserver = O.observePropertyChange(this.components.chooser, "value", this);
     delete document.body.className;
 };
@@ -34,7 +34,7 @@ Main.prototype.handleValuePropertyChange = function (value) {
 };
 
 Main.prototype.handleEvent = function (event) {
-    this.latin = this.components.latin.actualNode.value;
+    this.latin = this.components.latin.value;
     this.update();
 };
 
